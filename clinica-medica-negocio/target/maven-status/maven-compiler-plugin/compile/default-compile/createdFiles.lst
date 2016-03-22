@@ -1,0 +1,6 @@
+br/edu/ifpb/pdm/clinica/medica/negocio/entidades/Cliente.class
+br/edu/ifpb/pdm/clinica/medica/negocio/controller/ClientesResource.class
+br/edu/ifpb/pdm/clinica/medica/negocio/repository/ClienteRepository.class
+br/edu/ifpb/pdm/clinica/medica/negocio/entidades/Medico.class
+br/edu/ifpb/pdm/clinica/medica/negocio/repository/MedicoRepository.class
+br/edu/ifpb/pdm/clinica/medica/negocio/Loader.class
