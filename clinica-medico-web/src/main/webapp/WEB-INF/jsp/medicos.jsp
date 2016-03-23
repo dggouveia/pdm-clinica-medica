@@ -28,7 +28,7 @@
     <body class="hold-transition login-page">
         <div class="example-modal">
             <div class="modal" id="medico">
-                <div class="modal-dialog">
+                <div class="modal-body">
                     <div class="modal-content">
 
                     </div>
@@ -102,28 +102,28 @@
         <!-- iCheck -->
         <script src="/plugins/iCheck/icheck.min.js"></script>
         <script>
-                    function addMedicoModal() {
-                        $.ajax({
-                            url: "/medicos/addModal",
-                            context: document.body
-                        }).done(function (data) {
-                            var wrapper = $('.modal-content');
-                            wrapper.empty();
-                            wrapper.append(data);
-                            $("#medico").modal();
-                        });
-                    }
-                    function medicoModal(id) {
-                        $.ajax({
-                            url: "/medicos/viewModal/" + id,
-                            context: document.body
-                        }).done(function (data) {
-                            var wrapper = $('.modal-content');
-                            wrapper.empty();
-                            wrapper.append(data);
-                            $("#medico").modal();
-                        });
-                    }
+                            function addMedicoModal() {
+                                $.ajax({
+                                    url: "/medicos/addModal",
+                                    context: document.body
+                                }).done(function (data) {
+                                    var wrapper = $('.modal-content');
+                                    wrapper.empty();
+                                    wrapper.append(data);
+                                    $("#medico").modal();
+                                });
+                            }
+                            function medicoModal(id) {
+                                $.ajax({
+                                    url: "/medicos/viewModal/" + id,
+                                    context: document.body
+                                }).done(function (data) {
+                                    var wrapper = $('.modal-content');
+                                    wrapper.empty();
+                                    wrapper.append(data);
+                                    $("#medico").modal();
+                                });
+                            }
         </script>
     </body>
 </html>
