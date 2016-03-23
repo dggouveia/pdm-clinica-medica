@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -31,6 +32,17 @@ public class MedicosController {
     public String getMedicos (HttpServletRequest request){        
         request.setAttribute("medicos", mountListMedicos(RequisicaoHttp.getJson(URL)));
         return "medicos";
+    }
+    
+    @RequestMapping("/addModal")
+    public String getModalAddMedicos (HttpServletRequest request){        
+        return "modalAddMedico";
+    }
+    
+    @RequestMapping("/viewModal/{id}")
+    public String getModalMedicos (HttpServletRequest request, @PathVariable long id){        
+        request.setAttribute("medico", mountMedico(RequisicaoHttp.getJson(URL + "/" + id)));
+        return "modalMedico";
     }
     
     @RequestMapping("/add")
@@ -57,7 +69,14 @@ public class MedicosController {
     }
     
     private List<Medico> mountListMedicos (String json){
+        System.out.println(json);
         TypeToken<List<Medico>> token = new TypeToken<List<Medico>>() {};
+        return new Gson().fromJson(json, token.getType());
+    }
+    
+    private Medico mountMedico (String json){
+        System.out.println(json);
+        TypeToken<Medico> token = new TypeToken<Medico>() {};
         return new Gson().fromJson(json, token.getType());
     }
     
