@@ -26,6 +26,16 @@ public class Medico {
     private String log;
     private String especialidade;
     private String opiniao;
+    @OneToMany
+    private List<Avaliacao> avaliacoes;
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
     
     public String getLog() {
         return log;

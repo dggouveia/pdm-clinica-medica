@@ -7,7 +7,6 @@ import java.util.List;
 import javax.inject.Inject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,7 +43,8 @@ public class MedicosController {
         return repository.findOne(id);
     }
     
-    public String saveMedico (@RequestBody Medico medico){
+    @RequestMapping("/add")
+    public String saveMedico (Medico medico){
         repository.save(medico);
         return ""+HttpStatus.ACCEPTED;
     }
