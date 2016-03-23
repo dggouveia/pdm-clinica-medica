@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 /home/emanuel/NetBeansProjects/pdm-clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/MainController.java
 /home/emanuel/NetBeansProjects/pdm-clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/Loader.java
+/home/emanuel/NetBeansProjects/pdm-clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/MedicosController.java
 /home/emanuel/NetBeansProjects/pdm-clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/utils/RequisicaoHttp.java
 /home/emanuel/NetBeansProjects/pdm-clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/ClientesController.java
-=======
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/ClientesController.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/Loader.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/MedicosController.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/utils/RequisicaoHttp.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-webapp/src/main/java/br/edu/ifpb/pdm/clinica/medica/webapp/controller/MainController.java
->>>>>>> 5cdb32f10a6e38829703da69a23ab3e608a7a063

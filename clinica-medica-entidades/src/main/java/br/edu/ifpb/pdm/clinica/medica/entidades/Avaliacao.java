@@ -20,6 +20,8 @@ public class Avaliacao {
     private long nota;
     @ManyToOne
     private Cliente cliente;
+    @ManyToOne
+    private Medico medico;
 
     public long getId() {
         return id;
@@ -55,4 +57,14 @@ public class Avaliacao {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+    
+    
 }
