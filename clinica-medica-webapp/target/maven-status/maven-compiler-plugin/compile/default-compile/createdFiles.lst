@@ -1,4 +1,9 @@
-br/edu/ifpb/pdm/clinica/medica/webapp/controller/MainController.class
+br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/MedicosController$1.class
 br/edu/ifpb/pdm/clinica/medica/Loader.class
+<<<<<<< HEAD
+=======
+br/edu/ifpb/pdm/clinica/medica/webapp/controller/MainController.class
+br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/MedicosController.class
+>>>>>>> 5cdb32f10a6e38829703da69a23ab3e608a7a063
 br/edu/ifpb/pdm/clinica/medica/webapp/utils/RequisicaoHttp.class
 br/edu/ifpb/pdm/clinica/medica/webapp/controller/cliente/ClientesController.class

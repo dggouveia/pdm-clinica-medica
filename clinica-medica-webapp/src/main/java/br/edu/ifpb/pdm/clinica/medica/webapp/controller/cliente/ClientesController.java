@@ -78,4 +78,11 @@ public class ClientesController {
         }
         return null;
     }
+    
+    @RequestMapping("/logout")
+    public @ResponseBody
+    String logout(HttpSession session) throws UnsupportedEncodingException, IOException {
+        session.removeAttribute("cliente");
+        return ""+HttpStatus.ACCEPTED;
+    }
 }

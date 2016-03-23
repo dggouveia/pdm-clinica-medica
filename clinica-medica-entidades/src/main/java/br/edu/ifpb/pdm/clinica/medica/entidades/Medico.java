@@ -1,5 +1,6 @@
 package br.edu.ifpb.pdm.clinica.medica.entidades;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,12 +18,38 @@ public class Medico {
     private long id;
     private String nome;
     private String nomeClinica;
-    private String email;
-    private String telefone;
+    private String contato;
     private String cidade;
-    private String localidadeClinica;
+    private String estado;
+    private String lat;
+    private String log;
     private String especialidade;
     private String opiniao;
+    private List<Avaliacao> avaliacoes;
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+    
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
+    }
+    
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public long getId() {
         return id;
@@ -48,20 +75,12 @@ public class Medico {
         this.nomeClinica = nomeClinica;
     }
 
-    public String getEmail() {
-        return email;
+    public String getContato() {
+        return contato;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     public String getCidade() {
@@ -72,12 +91,12 @@ public class Medico {
         this.cidade = cidade;
     }
 
-    public String getLocalidadeClinica() {
-        return localidadeClinica;
+    public String getLat() {
+        return lat;
     }
 
-    public void setLocalidadeClinica(String localidadeClinica) {
-        this.localidadeClinica = localidadeClinica;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
     public String getEspecialidade() {
