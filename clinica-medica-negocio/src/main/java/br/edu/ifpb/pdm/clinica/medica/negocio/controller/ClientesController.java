@@ -4,6 +4,7 @@ import br.edu.ifpb.pdm.clinica.medica.entidades.Cliente;
 import br.edu.ifpb.pdm.clinica.medica.negocio.repository.ClienteRepository;
 import javax.inject.Inject;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +21,7 @@ public class ClientesController {
     private ClienteRepository repository;  
     
     @RequestMapping(value = "/salvar")
-    public String salvar (String email, String senha){
-        Cliente cliente = new Cliente(email, senha);
+    public String salvar (@RequestBody Cliente cliente){
         repository.save(cliente);
         return ""+HttpStatus.ACCEPTED;
     }
