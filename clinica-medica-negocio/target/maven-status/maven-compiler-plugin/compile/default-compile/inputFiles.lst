@@ -1,6 +1,5 @@
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/Loader.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/controller/ClientesResource.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/entidades/Medico.java
+/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/Loader.java
 /home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/repository/MedicoRepository.java
 /home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/repository/ClienteRepository.java
-/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/entidades/Cliente.java
+/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/controller/MedicosController.java
+/home/douglas/Documentos/Repositorios/clinica-medica/clinica-medica-negocio/src/main/java/br/edu/ifpb/pdm/clinica/medica/negocio/controller/ClientesController.java

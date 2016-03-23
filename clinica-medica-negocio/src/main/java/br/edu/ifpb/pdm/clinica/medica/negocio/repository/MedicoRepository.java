@@ -1,6 +1,6 @@
 package br.edu.ifpb.pdm.clinica.medica.negocio.repository;
 
-import br.edu.ifpb.pdm.clinica.medica.negocio.entidades.Medico;
+import br.edu.ifpb.pdm.clinica.medica.entidades.Medico;
 import org.springframework.data.repository.CrudRepository;
 
 /**

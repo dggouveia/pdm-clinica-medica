@@ -10,6 +10,12 @@
     <packaging>jar</packaging>
     
     <dependencies>
+        
+        <dependency>
+            <groupId>br.edu.ifpb.pdm</groupId>
+            <artifactId>clinica-medica-entidades</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--JSTL para página JSP-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -32,22 +38,20 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
-        <!--Spring Boot para Test de Unidade e Integração-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.5.5</version>
-            <type>pom</type>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>4.1.7.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.el</groupId>
+            <artifactId>el-ri</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     

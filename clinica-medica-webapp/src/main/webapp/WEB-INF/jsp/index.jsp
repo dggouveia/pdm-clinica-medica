@@ -29,19 +29,19 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Login</p>
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input id="email" type="email" class="form-control" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="senha">
+                    <input id="senha" type="password" class="form-control" placeholder="senha">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn btn-success btn-block btn-flat">Cadastrar</button>
+                        <button class="btn btn-success btn-block btn-flat" onclick="cadastro()">Cadastrar</button>
                     </div><!-- /.col -->
                     <div class="col-xs-4" style="float:right">
-                        <button class="btn btn-primary btn-block btn-flat">Login</button>
+                        <button class="btn btn-primary btn-block btn-flat" onclick="login()">Login</button>
                     </div><!-- /.col -->
                 </div>
 
@@ -55,29 +55,26 @@
         <!-- iCheck -->
         <script src="/plugins/iCheck/icheck.min.js"></script>
         <script>
-            var db = null;
-            if (typeof (Storage) !== "undefined") {
-                db = window.localStorage;
-            } else {
-                alert("Navegador não suporta armazenamento local");
-            }
             function login() {
-                var form = new FormData();
-                form.append('email', $("#email").val());
-                form.append('senha', $("#senha").val());
-                $.post("http://localhost:8080/clientes/login", form, function (data){
-                    
+                $.post("/clientes/login",
+                {
+                    email : $("#email").val(),
+                    senha : $("#senha").val()
+                },
+                function (data){
+                    alert(data);
                 });
             }
             function cadastro() {
-                var form = new FormData();
-                form.append('email', $("#email").val());
-                form.append('senha', $("#senha").val());
-                $.post("http://localhost:8080/clientes/salvar", form);
-            }
-            function redirect() {
-                window.location = "";
+                $.post("/clientes/cadastrar",
+                {
+                    email : $("#email").val(),
+                    senha : $("#senha").val()
+                },
+                function (data){
+                    alert(data);
+                });
             }
         </script>
     </body>
-</html>2
+</html>
