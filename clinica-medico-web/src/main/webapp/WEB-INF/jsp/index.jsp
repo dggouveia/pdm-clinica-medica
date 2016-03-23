@@ -63,6 +63,9 @@
                                 function (data) {
                                     if (data === '202')
                                         window.location = "/medicos";
+                                    else{
+                                        alert("Você não está cadastrado");
+                                    }
                                 });
                             }
                             function cadastro() {

@@ -38,6 +38,7 @@ public class ClientesController {
         if (entity != null) {
             InputStream instream = entity.getContent();
             try {
+                new Scanner(instream).next();
                 session.setAttribute("cliente", cliente);
                 return "" + HttpStatus.ACCEPTED;
             } catch (Exception e) {
