@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Medico {
     private String log;
     private String especialidade;
     private String opiniao;
+    @OneToMany
     private List<Avaliacao> avaliacoes;
 
     public List<Avaliacao> getAvaliacoes() {
