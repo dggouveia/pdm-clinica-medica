@@ -42,6 +42,7 @@ public class Avaliacao {
             this.nota = 0;
         else if (nota > 5)
             this.nota = 5;
+        else this.nota = nota;
     }
 
     public void setId(long id) {

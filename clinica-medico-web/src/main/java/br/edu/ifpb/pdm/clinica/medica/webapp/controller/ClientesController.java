@@ -1,7 +1,10 @@
-package br.edu.ifpb.pdm.clinica.medica.webapp.controller.cliente;
+package br.edu.ifpb.pdm.clinica.medica.webapp.controller;
 
 import br.edu.ifpb.pdm.clinica.medica.entidades.Cliente;
+import br.edu.ifpb.pdm.clinica.medica.entidades.Medico;
 import br.edu.ifpb.pdm.clinica.medica.webapp.utils.RequisicaoHttp;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -38,8 +41,8 @@ public class ClientesController {
         if (entity != null) {
             InputStream instream = entity.getContent();
             try {
-                new Scanner(instream).next();
-                session.setAttribute("cliente", cliente);
+                Cliente clienteSessao = mountCliente(new Scanner(instream).next());
+                session.setAttribute("cliente", clienteSessao);
                 return "" + HttpStatus.ACCEPTED;
             } catch (Exception e) {
                 return "" + HttpStatus.NOT_FOUND;
@@ -80,5 +83,11 @@ public class ClientesController {
     String logout(HttpSession session) throws UnsupportedEncodingException, IOException {
         session.removeAttribute("cliente");
         return "index";
+    }
+    
+    private Cliente mountCliente (String json){
+        System.out.println(json);
+        TypeToken<Cliente> token = new TypeToken<Cliente>() {};
+        return new Gson().fromJson(json, token.getType());
     }
 }

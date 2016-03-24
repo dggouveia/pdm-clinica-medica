@@ -1,5 +1,7 @@
-package br.edu.ifpb.pdm.clinica.medica.webapp.controller.cliente;
+package br.edu.ifpb.pdm.clinica.medica.webapp.controller;
 
+import br.edu.ifpb.pdm.clinica.medica.entidades.Avaliacao;
+import br.edu.ifpb.pdm.clinica.medica.entidades.Cliente;
 import br.edu.ifpb.pdm.clinica.medica.entidades.Medico;
 import br.edu.ifpb.pdm.clinica.medica.webapp.utils.RequisicaoHttp;
 import com.google.common.reflect.TypeToken;
@@ -11,6 +13,7 @@ import java.util.Scanner;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Controller;
@@ -51,6 +54,16 @@ public class MedicosController {
         request.getServletContext().getRequestDispatcher("/medicos").forward(request, response);
     }
     
+    @RequestMapping("/{id}/avaliar")
+    public void avaliarMedico (Avaliacao avaliacao, @PathVariable long id, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        Cliente cliente = (Cliente)session.getAttribute("cliente");
+        if (cliente != null){
+            avaliacao.setCliente(cliente);
+            sendAvaliacaoRequest(avaliacao, id);
+        }
+        request.getServletContext().getRequestDispatcher("/medicos").forward(request, response);
+    }
+    
     private void sendAddRequest (Medico medico){
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("nome", medico.getNome()));
@@ -66,6 +79,14 @@ public class MedicosController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    private void sendAvaliacaoRequest (Avaliacao avaliacao, long id) throws IOException{
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("opiniao", avaliacao.getOpiniao()));
+        params.add(new BasicNameValuePair("nota", ""+avaliacao.getNota()));
+        params.add(new BasicNameValuePair("cliente", ""+avaliacao.getCliente().getId()));
+        RequisicaoHttp.post(URL+"/"+id+"/avaliar", params);
     }
     
     private List<Medico> mountListMedicos (String json){
