@@ -46,7 +46,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand">Avaliaçõe de Médicos</a>
+                            <a class="navbar-brand" href="/medicos">Avaliaçõe de Médicos</a>
                             <div class="user dropdown"></div>
                         </div>
 

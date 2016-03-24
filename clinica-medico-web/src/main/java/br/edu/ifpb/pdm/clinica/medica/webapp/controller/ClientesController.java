@@ -59,12 +59,12 @@ public class ClientesController {
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);
         params.add(new BasicNameValuePair("email", cliente.getEmail()));
         params.add(new BasicNameValuePair("senha", cliente.getSenha()));
-        HttpEntity entity = RequisicaoHttp.post(URL + "/salvar", params);
+        HttpEntity entity = RequisicaoHttp.post(URL + "salvar/param", params);
         if (entity != null) {
             InputStream input = entity.getContent();
             try {
                 String response = new Scanner(input).next();
-                if (response.equals("" + HttpStatus.ACCEPTED.ordinal())) {
+                if (response.equals("202")) {
                     session.setAttribute("cliente", cliente);
                     return "" + HttpStatus.ACCEPTED;
                 }

@@ -30,7 +30,7 @@
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
-<c:if test="${medico.lat != null && medico.log != null}">
+<c:if test="${(medico.lat != null && !medico.lat.isEmpty()) && (medico.log != null && !medico.log.isEmpty())}">
     <script>
         var map;
         function initMap() {
