@@ -36,7 +36,7 @@ public class MedicosController {
     @RequestMapping("/busca")
     public List<Medico> getMedicos (String query){
         List<Medico> result = new ArrayList<>();
-        List<Medico> resultTmp = result = repository.findByCidade(query);        
+        List<Medico> resultTmp = repository.findByCidade(query);        
         if (resultTmp != null && !resultTmp.isEmpty()){
             result.addAll(resultTmp);            
         }
