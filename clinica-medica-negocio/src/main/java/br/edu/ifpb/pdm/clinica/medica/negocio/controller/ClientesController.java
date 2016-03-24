@@ -25,6 +25,12 @@ public class ClientesController {
         repository.save(cliente);
         return ""+HttpStatus.ACCEPTED;
     }
+    
+    @RequestMapping(value = "/salvar/param")
+    public String salvar (String email, String senha){
+        repository.save(new Cliente(email, senha));
+        return ""+HttpStatus.ACCEPTED;
+    }
             
     @RequestMapping(value = "/login")
     public Cliente login (String email, String senha){
