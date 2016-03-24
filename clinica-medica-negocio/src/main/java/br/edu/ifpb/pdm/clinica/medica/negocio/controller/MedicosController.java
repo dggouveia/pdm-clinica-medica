@@ -11,6 +11,7 @@ import java.util.List;
 import javax.inject.Inject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,6 +62,12 @@ public class MedicosController {
         repository.save(medico);
         return ""+HttpStatus.ACCEPTED;
     }
+    
+    @RequestMapping("/add/body")
+    public String saveMedico2(@RequestBody Medico medico){
+        repository.save(medico);
+        return ""+HttpStatus.ACCEPTED;
+    }
         
     @RequestMapping("/{id}/avaliar")
     public String avaliarMedico (String opiniao, long nota, long cliente, @PathVariable long id){
@@ -79,5 +86,15 @@ public class MedicosController {
         }        
         return ""+HttpStatus.NOT_FOUND;
     }
+     @RequestMapping("/{id}/object")
+    public boolean avaliarMedico (@RequestBody Avaliacao avaliacao, @PathVariable long id){
+        
+          Medico medico = repository.findOne(id);
+          medico.getAvaliacoes().add(avaliacao);
+           repository.save(medico);
+           return true;
+    }
+    
+    
     
 }
