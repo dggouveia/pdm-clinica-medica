@@ -15,7 +15,6 @@
     <name>Clinica Médica</name>
     <modules>
         <module>clinica-medica-negocio</module>
-        <module>clinica-medica-webapp</module>
         <module>clinica-medica-entidades</module>
         <module>clinica-medico-web</module>
     </modules>

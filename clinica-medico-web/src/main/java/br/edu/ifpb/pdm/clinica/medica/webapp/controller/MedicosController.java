@@ -54,6 +54,12 @@ public class MedicosController {
         request.getServletContext().getRequestDispatcher("/medicos").forward(request, response);
     }
     
+    @RequestMapping("/buscar")
+    public String getMedicos (String query, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        request.setAttribute("medicos", sendBuscarRequest(query));
+        return "medicos";
+    }
+    
     @RequestMapping("/{id}/avaliar")
     public void avaliarMedico (Avaliacao avaliacao, @PathVariable long id, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         Cliente cliente = (Cliente)session.getAttribute("cliente");
@@ -79,6 +85,14 @@ public class MedicosController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    private List<Medico> sendBuscarRequest (String query) throws IOException{
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("query", query));
+        String json = new Scanner(RequisicaoHttp.post(URL+"/busca", params).getContent()).nextLine();
+        TypeToken<List<Medico>> token = new TypeToken<List<Medico>>() {};
+        return new Gson().fromJson(json, token.getType());
     }
     
     private void sendAvaliacaoRequest (Avaliacao avaliacao, long id) throws IOException{

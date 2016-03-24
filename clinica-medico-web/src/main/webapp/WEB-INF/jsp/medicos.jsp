@@ -65,6 +65,13 @@
             </div><!-- /.box-header -->
             <div class="box-body">
                 <button data-toggle="modal" data-target="#newMedico" class="btn btn-success" onclick="addMedicoModal()">Cadastrar novo</button>
+                <form action="/medicos/buscar">
+                    <br />
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="query" placeholder="Buscar" name="query">
+                    </div>
+                    <input type="submit" class="btn btn-info" value="buscar">
+                </form>
                 <table id="example2" class="table table-bordered table-hover">
                     <tr>
                         <th>Nome</th>

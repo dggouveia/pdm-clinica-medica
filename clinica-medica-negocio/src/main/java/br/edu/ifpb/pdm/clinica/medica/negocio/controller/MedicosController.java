@@ -37,15 +37,15 @@ public class MedicosController {
     public List<Medico> getMedicos (String query){
         List<Medico> result = new ArrayList<>();
         List<Medico> resultTmp = result = repository.findByCidade(query);        
-        if (resultTmp != null || !resultTmp.isEmpty()){
+        if (resultTmp != null && !resultTmp.isEmpty()){
             result.addAll(resultTmp);            
         }
-        resultTmp = result = repository.findByEstado(query);
-        if (resultTmp != null || !resultTmp.isEmpty()){
+        resultTmp = repository.findByEstado(query);
+        if (resultTmp != null && !resultTmp.isEmpty()){
             result.addAll(resultTmp);            
         }
-        resultTmp = result = repository.findByEspecialidade(query);
-        if (resultTmp != null || !resultTmp.isEmpty()){
+        resultTmp = repository.findByEspecialidade(query);
+        if (resultTmp != null && !resultTmp.isEmpty()){
             result.addAll(resultTmp);            
         }
         return result;
