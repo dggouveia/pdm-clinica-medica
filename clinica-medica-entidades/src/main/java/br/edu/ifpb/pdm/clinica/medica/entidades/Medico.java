@@ -1,6 +1,7 @@
 package br.edu.ifpb.pdm.clinica.medica.entidades;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Medico {
     private String log;
     private String especialidade;
     private String opiniao;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
 
     public List<Avaliacao> getAvaliacoes() {

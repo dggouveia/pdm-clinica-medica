@@ -5,14 +5,14 @@
 </div>
 <div class="modal-dialog">
     <c:if test="${medico.lat != null && medico.log != null}">
-        <form action="/medicos/${medico.id}/avaliacao" method="post">
+        <form action="/medicos/${medico.id}/avaliar" method="post">
             <div class="form-group">
                 <label for="opiniao">Opiniao</label>
                 <input type="text" class="form-control" id="opiniao" placeholder="Fale sobre ${medico.nome}" name="opiniao">
             </div>
             <div class="form-group">
                 <label for="nota">Nota</label>
-                <input type="number" max="5" min="0" class="form-control" id="nota" name="nota">
+                <input type="text" class="form-control" id="nota" name="nota">
             </div>
             <input type="submit" class="btn btn-success" value="Adicionar avaliacao"/>
         </form>
@@ -20,10 +20,10 @@
 
         </div>
         <c:forEach items="${medico.avaliacoes}" var="av">
-            <h5>${avaliacao.cliente.email}
-                <small><i class="fa fa-star" />${avaliacao.nota}</small>
+            <h5>${av.cliente.email}
+                <small><i class="fa fa-star" />${av.nota}</small>
             </h5>
-            <p>${avaliacao.opiniao}</p>
+            <p>${av.opiniao}</p>
         </c:forEach>
     </c:if>
 </div>

@@ -1,8 +1,12 @@
 package br.edu.ifpb.pdm.clinica.medica.negocio.controller;
 
+import br.edu.ifpb.pdm.clinica.medica.entidades.Avaliacao;
+import br.edu.ifpb.pdm.clinica.medica.entidades.Cliente;
 import br.edu.ifpb.pdm.clinica.medica.entidades.Medico;
+import br.edu.ifpb.pdm.clinica.medica.negocio.repository.ClienteRepository;
 import br.edu.ifpb.pdm.clinica.medica.negocio.repository.MedicoRepository;
 import com.google.common.collect.Lists;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.http.HttpStatus;
@@ -21,6 +25,8 @@ public class MedicosController {
 
     @Inject
     private MedicoRepository repository;
+    @Inject
+    private ClienteRepository clienteRepository;
     
     @RequestMapping("")
     public List<Medico> getMedicos (){
@@ -28,14 +34,21 @@ public class MedicosController {
     }
     
     @RequestMapping("/busca")
-    public List<Medico> getMedicos (String cidade, String estado, String especialidade){
-        if (cidade != null && !cidade.isEmpty())
-            return repository.findByCidade(cidade);
-        if (estado != null && !estado.isEmpty())
-            return repository.findByCidade(estado);
-        if (especialidade != null && !especialidade.isEmpty())
-            return repository.findByCidade(especialidade);
-        return null;
+    public List<Medico> getMedicos (String query){
+        List<Medico> result = new ArrayList<>();
+        List<Medico> resultTmp = result = repository.findByCidade(query);        
+        if (resultTmp != null || !resultTmp.isEmpty()){
+            result.addAll(resultTmp);            
+        }
+        resultTmp = result = repository.findByEstado(query);
+        if (resultTmp != null || !resultTmp.isEmpty()){
+            result.addAll(resultTmp);            
+        }
+        resultTmp = result = repository.findByEspecialidade(query);
+        if (resultTmp != null || !resultTmp.isEmpty()){
+            result.addAll(resultTmp);            
+        }
+        return result;
     }
     
     @RequestMapping("/{id}")
@@ -47,6 +60,24 @@ public class MedicosController {
     public String saveMedico (Medico medico){
         repository.save(medico);
         return ""+HttpStatus.ACCEPTED;
+    }
+        
+    @RequestMapping("/{id}/avaliar")
+    public String avaliarMedico (String opiniao, long nota, long cliente, @PathVariable long id){
+        Medico medico = repository.findOne(id);
+        if (medico != null){
+            Cliente clienteDB = clienteRepository.findOne(cliente);
+            if (clienteDB != null){
+                Avaliacao avaliacao = new Avaliacao();
+                avaliacao.setCliente(clienteDB);
+                avaliacao.setNota(nota);
+                avaliacao.setOpiniao(opiniao);
+                medico.getAvaliacoes().add(avaliacao);
+                repository.save(medico);
+                return ""+HttpStatus.ACCEPTED;
+            }
+        }        
+        return ""+HttpStatus.NOT_FOUND;
     }
     
 }
